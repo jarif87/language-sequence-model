@@ -1,0 +1,228 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body with cyberpunk gradient */
+body {
+    font-family: 'Roboto Mono', monospace;
+    background: linear-gradient(135deg, #1c2526, #3a506b, #6b728e);
+    color: #e0e0e0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+    background-attachment: fixed;
+}
+
+/* Particle canvas for neon particles */
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Main container with holographic effect */
+.wrap {
+    width: 90%;
+    max-width: 900px;
+    background: rgba(28, 37, 38, 0.2);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255, 111, 207, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 111, 207, 0.3);
+    z-index: 1;
+    animation: fade-in 1s ease;
+}
+
+/* Fade-in animation for container */
+@keyframes fade-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Heading with neon glow */
+h1 {
+    font-size: 3.2rem;
+    color: #ff6fd7;
+    text-shadow: 0 0 10px #ff6fd7, 0 0 20px #5bc0f8, 0 0 30px #5bc0f8;
+    margin-bottom: 2rem;
+    animation: neon-pulse 2.5s infinite;
+}
+
+@keyframes neon-pulse {
+    0%, 100% { text-shadow: 0 0 10px #ff6fd7, 0 0 20px #5bc0f8, 0 0 30px #5bc0f8; }
+    50% { text-shadow: 0 0 20px #ff6fd7, 0 0 30px #5bc0f8, 0 0 40px #5bc0f8; }
+}
+
+/* Search container */
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Input field with neon border */
+.searchTerm {
+    width: 100%;
+    max-width: 600px;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #5bc0f8;
+    border-right: none;
+    border-radius: 12px 0 0 12px;
+    color: #e0e0e0;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.searchTerm::placeholder {
+    color: #8a9db6;
+}
+
+.searchTerm:focus, .searchTerm:hover {
+    border-color: #ff6fd7;
+    box-shadow: 0 0 15px rgba(255, 111, 207, 0.5);
+}
+
+.searchTerm.error {
+    border-color: #ff5555;
+    box-shadow: 0 0 15px rgba(255, 85, 85, 0.5);
+}
+
+/* Submit button with hover animation */
+.searchButton {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background: #5bc0f8;
+    color: #1c2526;
+    border: 2px solid #5bc0f8;
+    border-left: none;
+    border-radius: 0 12px 12px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.searchButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 111, 207, 0.3), transparent);
+    transition: 0.5s;
+}
+
+.searchButton:hover::before {
+    left: 100%;
+}
+
+.searchButton:hover {
+    background: #ff6fd7;
+    border-color: #ff6fd7;
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(255, 111, 207, 0.7);
+}
+
+.searchButton i {
+    font-size: 1.2rem;
+}
+
+/* Word count display */
+.word-count {
+    font-size: 1.1rem;
+    color: #5bc0f8;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    text-shadow: 0 0 5px rgba(91, 192, 248, 0.5);
+}
+
+/* Info section */
+.info {
+    font-size: 1rem;
+    color: #b0b0b0;
+    margin: 2rem 0;
+}
+
+.info p {
+    margin-bottom: 1rem;
+}
+
+.info strong {
+    color: #ff6fd7;
+    text-shadow: 0 0 5px rgba(255, 111, 207, 0.5);
+}
+
+/* Response section with glitch animation */
+.response {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border-left: 5px solid #ff6fd7;
+    animation: glitch 1s linear infinite;
+}
+
+.response h2 {
+    font-size: 1.8rem;
+    color: #e0e0e0;
+}
+
+.response span {
+    color: #5bc0f8;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(91, 192, 248, 0.5);
+}
+
+@keyframes glitch {
+    2%, 64% { transform: translate(2px, 0) skew(0deg); }
+    4%, 60% { transform: translate(-2px, 0) skew(0deg); }
+    62% { transform: translate(0, 0) skew(5deg); }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .wrap {
+        width: 95%;
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 2.4rem;
+    }
+
+    .searchTerm {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    .searchButton {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .word-count, .info {
+        font-size: 0.9rem;
+    }
+
+    .response h2 {
+        font-size: 1.5rem;
+    }
+}
